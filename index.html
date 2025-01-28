@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:rgb(20, 29, 39);
+        }
+
+        .wrapper {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inputfield {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .custom_select select, 
+        .inputfield input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .custom_select select:focus, 
+        .inputfield input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+            outline: none;
+        }
+
+        .custom_select {
+            position: relative;
+        }
+
+        .custom_select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .numeric-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .wrapper {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .inputfield input, .custom_select select {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                font-size: 0.9rem;
+            }
+
+            .numeric-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">Loan Prediction</div>
+        <form action="/" methods="POST">
+            <div class="inputfield">
+                <label for="gender">Gender</label>
+                <div class="custom_select">
+                    <select name="gender" id="gender">
+                        <option value="" selected hidden>Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label for="married">Married</label>
+                <div class="custom_select">
+                    <select name="married" id="married">
+                        <option value="" selected hidden>Select</option>
+                        <option value="married">Married</option>
+                        <option value="single">Single</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label for="dependents">Dependents</label>
+                <div class="custom_select">
+                    <select name="dependents" id="dependents">
+                        <option value="" selected hidden>Select</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3+">3+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label for="education">Education</label>
+                <div class="custom_select">
+                    <select name="education" id="education">
+                        <option value="" selected hidden>Select</option>
+                        <option value="graduated">Graduated</option>
+                        <option value="not graduated">Not Graduated</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label for="self_Employed">Self Employed</label>
+                <div class="custom_select">
+                    <select name="self_Employed" id="self_Employed">
+                        <option value="" selected hidden>Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label for="propertyarea">Property Area</label>
+                <div class="custom_select">
+                    <select name="propertyarea" id="propertyarea">
+                        <option value="" selected hidden>Select</option>
+                        <option value="rural">Rural</option>
+                        <option value="urban">Urban</option>
+                        <option value="semiurban">Semi-urban</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label for="credithistory">Credit History</label>
+                <div class="custom_select">
+                    <select name="credithistory" id="credithistory">
+                        <option value="" selected hidden>Select</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="numeric-group">
+                <div class="inputfield">
+                    <label for="applicantIncome">Applicant Income (Rs.)</label>
+                    <input type="text" name="applicantIncome" id="applicantIncome" required>
+                </div>
+
+                <div class="inputfield">
+                    <label for="coapplicantIncome">Coapplicant Income (Rs.)</label>
+                    <input type="text" name="coapplicantIncome" id="coapplicantIncome" required>
+                </div>
+
+                <div class="inputfield">
+                    <label for="loanAmount">Loan Amount (Rs.)</label>
+                    <input type="text" name="loanAmount" id="loanAmount" required>
+                </div>
+
+                <div class="inputfield">
+                    <label for="loanamountterm">Loan Amount Term (Months)</label>
+                    <input type="text" name="loanamountterm" id="loanamountterm" required>
+                </div>
+            </div>
+
+            <button type="submit" class="button">Submit</button>
+        </form>
+       <div class="result">
+            
+        <p>
+            <h2>Prediction: {{ 'Eligible' if pred == 1 else 'Not Eligible' }}</h2>
+        
+        </p>
+       
+        
+    </div>
+</body>
+</html>
